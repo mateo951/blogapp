@@ -34,6 +34,14 @@ $ rails db:migrate
 
 - Finaly run `rails s` and visit http://localhost:3000/  in your browser!
 
+## Run tests
+
+ To run test locally you need just to run this following command in your terminal :
+
+ ```
+ $ rake spec
+ ```
+
 ## Authors
 
 👤 Mateo Villagómez<br>
