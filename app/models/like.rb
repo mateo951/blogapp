@@ -1,0 +1,3 @@
+class Likes < ApplicationRecord
+
+end
