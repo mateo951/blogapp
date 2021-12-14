@@ -32,7 +32,7 @@ When you will add migration file then, you can add command like
 $ rails db:migrate
 ```
 
-- Finaly run `rails s` and visit http://localhost:3000/  in your browser!
+- Run `rails s` and visit http://localhost:3000/  in your browser!
 
 ## Run tests
 
