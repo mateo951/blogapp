@@ -1,2 +1,8 @@
-<h1>Users#show</h1>
-<p>On Construction</p>
+<%= render partial: 'user', object: @user %>
+<div class="bio_container">
+  <%= @user.bio %>
+</div>
+
+<% @posts.each do |post| %>
+  <%= render partial: 'posts/post', object: post %>
+<% end %>
