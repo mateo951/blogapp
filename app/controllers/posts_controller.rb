@@ -3,7 +3,7 @@ class PostsController < ApplicationController
     @user = User.find(params[:user_id])
     @posts = @user.recent_posts
   end
-  
+
   def show
     @user = User.find(params[:user_id])
     @post = @user.posts.find(params[:id])
