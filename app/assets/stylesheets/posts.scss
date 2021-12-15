@@ -1,11 +1,7 @@
-// Place all the styles related to the Posts controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
-center_content {
+.center_content {
   text-align: center;
 }
-  
+
 .flex-row {
   display: flex;
   align-items: center;
@@ -14,29 +10,29 @@ center_content {
 .gap {
   gap: 10px;
 }
-  
+
 .post_data {
   margin: auto;
   justify-content: space-between;
 }
-  
+
 .img_content {
   margin-left: 20px;
 }
-  
+
 .user_img {
   height: 100px;
 }
-  
+
 .post_info {
   width: 100%;
   margin: 20px;
   border: solid 1px gray;
   gap: 20%;
   justify-content: space-between;
-  padding: 0px 20px 0px 20px;
+  padding: 0 20px 0 20px;
 }
-  
+
 .bio_container {
   margin: 20px;
   padding: 20px;
@@ -50,7 +46,7 @@ center_content {
 }
 
 .post_text_style {
-  margin: 0px;
+  margin: 0;
 }
 
 .right-content {
@@ -60,4 +56,3 @@ center_content {
 .in-between {
   justify-content: space-between;
 }
-
