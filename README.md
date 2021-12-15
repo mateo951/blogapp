@@ -13,7 +13,7 @@ To run the project locally follow these steps:
  - Make sure you have both `Ruby` & `Rails` installed in your machine
  (else install `Rails` just with this simple command  ```gem install rails```)
 
- - clone the project: 
+ - Clone repo from Github: 
 ```
 $ git clone git@github.com:mateo951/blogapp.git
 ```
@@ -36,9 +36,13 @@ $ rails db:migrate
  - Create testing data:
 ```
 $ rails db:seed
+```
+ - Run server:
+```
+$ rails s
+```
 
-
-- Run `rails s` and visit http://localhost:3000/  in your browser!
+- Visit http://localhost:3000/  in your browser!
 
 ## Run tests
 
