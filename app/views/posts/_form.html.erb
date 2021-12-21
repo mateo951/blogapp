@@ -1,7 +1,15 @@
-<%= form_with model: @user do |form| %>
-
-<% end %>
-
-<%= form_with url: "/", method: :get do |form| %>
-  <%= form.text_field :query %>
+<%= form_with model: @post, url: new_post_path, method: :post, local: true, scope: :post do |f| %>
+  <div class="flex-row col-flex">
+    <%= f.label :title %>
+    <%= f.text_field :title,
+    size: "50x12",
+  placeholder: "Write your title here..."
+    %>
+    <%= f.label :Text %>
+    <%= f.text_area :text,
+  size: "50x12",
+  placeholder: "Write your post here..."
+    %>
+    <%= f.submit "Submit" %>
+  </div>
 <% end %>
