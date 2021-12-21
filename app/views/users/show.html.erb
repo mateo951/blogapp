@@ -1,8 +1,11 @@
 <%= render partial: 'user', object: @user %>
+<a href="/users/"><button>See all posts</button></a>
 <div class="bio_container">
   <%= @user.bio %>
 </div>
-
+<%= render :partial => 'posts/new' %>
 <% @posts.each do |post| %>
-  <%= render partial: 'posts/post', object: post %>
+  <a href="/users/<%= @user.id %>/posts/<%= post.id %>">
+    <%= render partial: 'posts/post', object: post %>
+  </a>
 <% end %>

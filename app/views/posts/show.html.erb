@@ -1,3 +1,4 @@
+<%= render partial: 'users/user', object: @user %>
 <div class="post_data flex-row">
   <div class="post_info">
     <div class="flex-row in-between">
@@ -8,12 +9,12 @@
       </div>
     </div>
     <div class="flex">
-    <h4 class=""><%= @post.text %></h4>
+    <h4><%= @post.text %></h4>
     </div>
   </div>
 </div>
 <div class="post_data flex-row">
   <div class="post_info">
-  <%= render partial: 'shared/comment', collection: @post.recent_comments %>
+  <%= render partial: 'shared/comment', collection: @comments %>
   </div>
 </div>
