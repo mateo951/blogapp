@@ -1,4 +1,5 @@
 <%= render partial: 'users/user', object: @user %>
+<a href="/users/<%= @user.id %>/posts/"><button>See all posts</button></a>
 <div class="post_data flex-row">
   <div class="post_info">
     <div class="flex-row in-between">
