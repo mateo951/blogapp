@@ -1,5 +1,6 @@
 <%= render partial: 'users/user', object: @user %>
 <a href="/users/<%= @user.id %>/posts/"><button>See all posts</button></a>
+<%= button_to "Like", new_like_path, params: { like: {author_id: @post.author_id, post_id: @post.id } }, method: :post %>
 <div class="post_data flex-row">
   <div class="post_info">
     <div class="flex-row in-between">
