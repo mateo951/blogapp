@@ -1,0 +1,17 @@
+<%= form_with model: comment, url: new_comment_path,  method: :comment, local: true, scope: :comment do |f| %>
+  <%= f.hidden_field :author_id, value: params[:id] %><br>
+  <%= f.hidden_field :post_id, value: params[:post_id] %><br>
+
+  <div class="flex-row col-flex">
+    <p>
+      <%= f.label :text %><br>
+      <%= f.text_area :text, size: "50x12",
+      placeholder: "Write your post here...",
+      value: ""
+        %>
+    </p>
+    <p>
+      <%= f.submit %>
+    </p>
+  </div>
+<% end %>
