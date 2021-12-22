@@ -23,7 +23,7 @@ class PostsController < ApplicationController
     @post = @user.posts.create(post_params)
     if @post.save
       flash[:success] = 'Post saved successfully'
-      redirect_to "/users/"
+      redirect_to '/users/'
       Post.update_counter(@post.author_id)
     else
       flash.now[:error] = 'Error: Post could not be saved'

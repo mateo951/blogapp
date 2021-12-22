@@ -5,7 +5,7 @@ class LikesController < ApplicationController
       format.html { render :new }
     end
   end
-  
+
   def create
     @user = current_user
     @post = Post.find_by_id(params[:post_id])
@@ -13,10 +13,10 @@ class LikesController < ApplicationController
     redirect_back(fallback_location: root_path)
     Like.update_counter(@post)
   end
-  
-    private
 
-    def like_params
-      params.require(:like).permit(:author_id, :post_id)
-    end
+  private
+
+  def like_params
+    params.require(:like).permit(:author_id, :post_id)
+  end
 end
