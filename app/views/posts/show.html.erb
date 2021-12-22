@@ -1,3 +1,6 @@
+<%= render partial: 'users/user', object: @user %>
+<a href="/users/<%= @user.id %>/posts/"><button>See all posts</button></a>
+<%= button_to "Like", new_like_path, params: { like: {author_id: @post.author_id, post_id: @post.id } }, method: :post %>
 <div class="post_data flex-row">
   <div class="post_info">
     <div class="flex-row in-between">
@@ -8,12 +11,13 @@
       </div>
     </div>
     <div class="flex">
-    <h4 class=""><%= @post.text %></h4>
+    <h4><%= @post.text %></h4>
     </div>
   </div>
 </div>
 <div class="post_data flex-row">
   <div class="post_info">
-  <%= render partial: 'shared/comment', collection: @post.recent_comments %>
+  <%= render partial: 'shared/comment', collection: @comments %>
   </div>
 </div>
+<%= render :partial => 'comments/new' %>

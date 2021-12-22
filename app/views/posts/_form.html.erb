@@ -1,0 +1,18 @@
+<%= form_with model: @post, url: new_post_path, method: :post, local: true, scope: :post do |f| %>
+  <%= f.hidden_field :author_id, value: params[:id] %><br>
+  <%= f.hidden_field :comments_counter, value: 0 %><br>
+  <%= f.hidden_field :likes_counter, value: 0 %><br>
+  <div class="flex-row col-flex">
+    <%= f.label :title %>
+    <%= f.text_field :title,
+    size: "50x12",
+  placeholder: "Write your title here..."
+    %>
+    <%= f.label :Text %>
+    <%= f.text_area :text,
+  size: "50x12",
+  placeholder: "Write your post here..."
+    %>
+    <%= f.submit "Submit" %>
+  </div>
+<% end %>
