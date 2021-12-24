@@ -55,16 +55,5 @@ RSpec.describe User, type: :model do
 
       expect(User.first.recent_posts.length).to eq(3)
     end
-
-    it 'should not retrieve all posts' do
-      user = User.create(name: 'Mateo', photo: 'photo', bio: 'bio', posts_counter: 0)
-      posts = []
-      (1..5).each do |_i|
-        posts << Post.create(title: 'Post #', text: 'something good', comments_counter: 0, likes_counter: 0,
-                             author_id: user.id)
-      end
-
-      expect(User.first.recent_posts.length).not_to eql(posts)
-    end
   end
 end
