@@ -20,4 +20,9 @@
   <%= render partial: 'shared/comment', collection: @comments %>
   </div>
 </div>
+<% flash.each do |type, msg| %>
+  <div>
+    <%= msg %>
+  </div>
+<% end %>
 <%= render :partial => 'comments/new' %>

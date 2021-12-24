@@ -3,11 +3,6 @@
   <a href="/users/<%= @user.id %>/posts/<%= post.id %>">
     <%= render partial: 'posts/post', object: post %>
   </a>
-  <% flash.each do |type, msg| %>
-    <div>
-      <%= msg %>
-    </div>
-  <% end %>
   <div class="comments">
     <%= render partial: 'shared/comment', collection: post.recent_comments %>
   </div>
