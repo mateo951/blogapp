@@ -10,8 +10,14 @@ class LikesController < ApplicationController
     @user = current_user
     @post = Post.find_by_id(params[:post_id])
     @like = Like.create!(like_params)
-    redirect_back(fallback_location: root_path)
-    Like.update_counter(@post)
+    if @like.save
+      flash[:success] = 'Like saved successfully'
+      redirect_back(fallback_location: root_path)
+      Like.update_counter(@post)
+    else
+      flash.now[:error] = 'Like could not be saved'
+      redirect_back(fallback_location: root_path)
+    end
   end
 
   private
