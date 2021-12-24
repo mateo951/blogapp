@@ -23,11 +23,10 @@ class PostsController < ApplicationController
     @post = @user.posts.create(post_params)
     if @post.save
       flash[:success] = 'Post saved successfully'
-      redirect_back(fallback_location: root_path)
     else
       flash[:error] = 'Error:  Post could not be saved'
-      redirect_back(fallback_location: root_path)
     end
+    redirect_back(fallback_location: root_path)
   end
 
   def post_params
