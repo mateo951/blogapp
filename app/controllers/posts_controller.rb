@@ -23,12 +23,10 @@ class PostsController < ApplicationController
     @post = @user.posts.create(post_params)
     if @post.save
       flash[:success] = 'Post saved successfully'
-      redirect_to '/users/'
-      Post.update_counter(@post.author_id)
     else
-      flash.now[:error] = 'Error: Post could not be saved'
-      render :new, locals: { post: @post }
+      flash[:error] = 'Error:  Post could not be saved'
     end
+    redirect_back(fallback_location: root_path)
   end
 
   def post_params

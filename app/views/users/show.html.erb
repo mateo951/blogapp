@@ -3,6 +3,11 @@
 <div class="bio_container">
   <%= @user.bio %>
 </div>
+<% flash.each do |type, msg| %>
+  <div>
+    <%= msg %>
+  </div>
+<% end %>
 <%= render :partial => 'posts/new' %>
 <% @posts.each do |post| %>
   <a href="/users/<%= @user.id %>/posts/<%= post.id %>">
