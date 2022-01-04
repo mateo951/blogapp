@@ -6,7 +6,12 @@ git_source(:github) do |repo_name|
 end
 
 ruby '3.0.3'
+
+gem 'devise'
+
 gem 'rubocop', '>= 1.0', '< 2.0'
+
+gem 'bootsnap', '>= 1.4.4', require: false
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.1'
