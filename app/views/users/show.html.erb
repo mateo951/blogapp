@@ -18,6 +18,6 @@
     <%= render partial: 'posts/post', object: post %>
   </a>
   <% if @user == current_user %>
-    <%= button_to "Delete", delete_post_path, params: { post: { @post_id: @post.id, @user_id: current_user.id } }, method: :get %>
+    <%= button_to "Delete", delete_post_path, params: { post: { post_id: post.id, user_id: current_user.id } }, method: :get %>
   <% end %>
 <% end %>
