@@ -8,7 +8,11 @@
     <%= msg %>
   </div>
 <% end %>
-<%= render :partial => 'posts/new' %>
+
+<% if @user == current_user %>
+  <%= render :partial => 'posts/new' %>
+<% end %>
+
 <% @posts.each do |post| %>
   <a href="/users/<%= @user.id %>/posts/<%= post.id %>">
     <%= render partial: 'posts/post', object: post %>

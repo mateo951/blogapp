@@ -8,6 +8,7 @@ class Ability
     can :read, :all
 
     if user.present?
+      can :read, :all
       can :manage, Post, user: user
     end
   end
