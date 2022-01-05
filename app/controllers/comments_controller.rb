@@ -20,7 +20,6 @@ class CommentsController < ApplicationController
     end
   end
 
-
   def destroy
     @post = Post.find_by_id(params[:post_id])
     @user = User.find_by_id(params[:user_id])

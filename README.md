@@ -59,6 +59,13 @@ GitHub: [@mateo951](https://github.com/mateo951)<br>
 Twitter: [@MVGameDev](https://twitter.com/MVGameDev)<br>
 LinkedIn: [@Mateo Villagómez](https://www.linkedin.com/in/mateo-villagómez/)<br>
 
+👤 **Juan Felipe Gomez Tobon**
+
+GitHub: [@githubhandle](https://github.com/Felipeg005/)
+Twitter: [@twitterhandle](https://twitter.com/JuanFGT05)
+LinkedIn: [LinkedIn](https://www.linkedin.com/in/juan-felipe-gomez-tobon/)
+
+
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
