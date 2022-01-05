@@ -1,3 +1,6 @@
 <div>
   <%= comment.user.name %>: <%= comment.text %>
+  <% if can? :destroy, comment %>
+    <%= link_to 'Delete', destroy_comment_path(current_user.id, @post.id, comment.id), method: :delete, data: {confirm: "Are you sure"}  %>
+  <% end %>
 </div>

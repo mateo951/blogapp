@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  load_and_authorize_resource
   def new
     @comment = Comment.new
     respond_to do |format|
@@ -17,6 +18,19 @@ class CommentsController < ApplicationController
       flash[:error] = 'Error: Comment could not be saved'
       redirect_back(fallback_location: root_path)
     end
+  end
+
+
+  def destroy
+    @post = Post.find_by_id(params[:post_id])
+    @user = User.find_by_id(params[:user_id])
+    @comment = @post.comments.find(params[:format])
+    if @comment.destroy
+      flash[:success] = 'Post destroyed successfully'
+    else
+      flash[:error] = 'Error:  Post could not be destroyed'
+    end
+    redirect_back(fallback_location: root_path)
   end
 
   private
