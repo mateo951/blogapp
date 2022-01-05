@@ -31,6 +31,17 @@ class PostsController < ApplicationController
     redirect_back(fallback_location: root_path)
   end
 
+  def delete
+    @post = Post.find_by_id(params[:post_id])
+    @user = User.find(params[:user_id])
+    if @post.delete
+      flash[:success] = 'Post deleted successfully'
+    else
+      flash[:error] = 'Error:  Post could not be deleted'
+    end
+    redirect_back(fallback_location: root_path)
+  end
+
   def post_params
     params.require(:post).permit(:title, :text, :author_id, :comments_counter, :likes_counter)
   end
