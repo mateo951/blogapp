@@ -15,6 +15,15 @@ gem 'bootsnap', '>= 1.4.4', require: false
 
 gem 'cancancan'
 
+group :development, :test do
+  gem "database_cleaner"
+end
+
+group :test do
+  gem "capybara"
+  gem "selenium-webdriver"
+end
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.1'
 # Use postgresql as the database for Active Record
