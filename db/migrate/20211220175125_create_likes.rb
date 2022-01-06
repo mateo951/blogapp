@@ -1,4 +1,4 @@
-class CreateLikes < ActiveRecord::Migration[5.2]
+class CreateLikes < ActiveRecord::Migration[6.1]
   def change
     create_table :likes do |t|
       t.bigint :author_id

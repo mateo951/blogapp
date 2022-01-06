@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  load_and_authorize_resource
   def index
     @user = User.find(params[:id])
     @posts = @user.posts
@@ -8,6 +9,7 @@ class PostsController < ApplicationController
     @user = User.find(params[:user_id])
     @post = @user.posts.find(params[:post_id])
     @comments = @post.comments.all
+    authorize! :read, @post
   end
 
   def new
@@ -25,6 +27,17 @@ class PostsController < ApplicationController
       flash[:success] = 'Post saved successfully'
     else
       flash[:error] = 'Error:  Post could not be saved'
+    end
+    redirect_back(fallback_location: root_path)
+  end
+
+  def destroy
+    @post = Post.find_by_id(params[:post_id])
+    @user = User.find(params[:user_id])
+    if @post.destroy
+      flash[:success] = 'Post destroyed successfully'
+    else
+      flash[:error] = 'Error:  Post could not be destroyed'
     end
     redirect_back(fallback_location: root_path)
   end

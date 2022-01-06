@@ -28,6 +28,9 @@
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
+  <%= f.hidden_field :role, value: 'user', required: false %>
+
+
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>
