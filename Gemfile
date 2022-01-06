@@ -22,6 +22,7 @@ end
 group :test do
   gem "capybara"
   gem "selenium-webdriver"
+  gem "chromedriver-helper"
 end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
