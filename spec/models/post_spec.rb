@@ -40,17 +40,4 @@ RSpec.describe Post, type: :model do
       expect(post).to_not be_valid
     end
   end
-
-  describe 'testing comments ' do
-    it 'post.recents_comments => should retrieve 5 most recents comments' do
-      user = User.create(name: 'Mateo', photo: 'bio', bio: 'bio', posts_counter: 0)
-      post = Post.create(title: 'Test', text: 'test', comments_counter: 0, likes_counter: 0, author_id: user.id)
-      comments = []
-      (1..10).each do |_i|
-        comments << Comment.create(text: 'Test', author_id: user.id, post_id: post.id)
-      end
-
-      expect(Post.first.recent_comments.length).to eq(5)
-    end
-  end
 end
