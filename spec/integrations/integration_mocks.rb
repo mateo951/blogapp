@@ -15,4 +15,14 @@ module Mocks
   
     User.all
   end
+  def create_posts(users)
+    users.each do |user|
+      (1..5).each do |j|
+        Post.create(title: "Post number: #{j}", text: "This is post number: #{j}", comments_counter: 0,
+                    likes_counter: 0, author_id: user.id)
+      end
+    end
+
+    Post.all
+  end
 end
