@@ -37,18 +37,24 @@ RSpec.describe 'user index view', type: :feature do
       expect(page).to have_content "This is post number"
     end
   end
-  context 'displaying post info' do
-    it 'can see recents comment for the post' do
-      post.recent_comments do |comment|
+  context 'displaying comments info' do
+    it 'can see recents comment' do
+      @post.recent_comments do |comment|
         expect(page).to have_content comment.text
       end
     end
-
-    it 'can see how many comments a post has' do
-      user = User.first
-      post = Post.first
-      visit user_posts_path(user.id)
-      expect(page).to have_content "Comments: #{post.comments_counter}"
+    it 'can see comments counter' do
+      expect(page).to have_content "Comments: #{ @post.comments_counter }"
+    end
+    it 'can see likes counter' do
+      expect(page).to have_content "Likes: #{ @post.likes_counter }"
+    end
+  end
+  context 'redirecting properly to other paths' do
+    it "When I click a user's post, it redirects me to that post's show page" do
+      post = @users[1].recent_posts[0]
+      click_link("Post ##{post.title}")
+      expect(page).to have_current_path "/users/#{@users[1].id}/posts/#{post.id}"
     end
   end
 end
