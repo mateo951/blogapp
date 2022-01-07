@@ -3,7 +3,11 @@
   <a href="/users/<%= @user.id %>/posts/<%= post.id %>">
     <%= render partial: 'posts/post', object: post %>
   </a>
-  <div class="comments">
-    <%= render partial: 'shared/comment', collection: post.recent_comments %>
-  </div>
+  <% if post.recent_comments.length > 0 %>
+    <div class="post_data flex-row">
+      <div class="post_info">
+        <%= render partial: 'shared/recentComments', locals: {collection: post.recent_comments, post: post } %>
+      </div>
+    </div>
+  <% end %>  
 <% end %>

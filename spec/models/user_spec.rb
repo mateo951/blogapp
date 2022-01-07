@@ -28,32 +28,5 @@ RSpec.describe User, type: :model do
     before :each do
       subject.save
     end
-
-    it 'name exists' do
-      expect(subject).to be_valid
-    end
-
-    it 'posts_counter must be a integer' do
-      subject.posts_counter = 3
-      expect(subject).to be_valid
-    end
-
-    it 'posts-counter greater than or equal to 0' do
-      subject.posts_counter = 5
-      expect(subject).to be_valid
-    end
-  end
-
-  describe 'recent_posts' do
-    it 'should retrieve 5 most recents posts' do
-      user = User.create(name: 'Mateo', photo: 'photo', bio: 'bio', posts_counter: 0)
-      posts = []
-      (1..5).each do |_i|
-        posts << Post.create(title: 'Post #', text: 'something good', comments_counter: 0, likes_counter: 0,
-                             author_id: user.id)
-      end
-
-      expect(User.first.recent_posts.length).to eq(3)
-    end
   end
 end
