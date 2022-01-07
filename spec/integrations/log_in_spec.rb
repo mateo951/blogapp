@@ -2,7 +2,8 @@ require 'rails_helper'
 
 describe 'the login process', type: :feature do
   before :each do
-    user = User.new(name: 'Mateo', bio: "I'm a testing living creature", posts_counter: 0, email: 'mateovillagomez1995@gmail.com')
+    user = User.new(name: 'Mateo', bio: "I'm a testing living creature", posts_counter: 0,
+                    email: 'mateovillagomez1995@gmail.com')
     user.password = '123456'
     user.password_confirmation = '123456'
     user.save
@@ -16,7 +17,7 @@ describe 'the login process', type: :feature do
       expect(page).to have_content('Log in')
     end
   end
-  context 'User interaction on log in form' do 
+  context 'User interaction on log in form' do
     it 'Receive error if log in fields are left blank' do
       visit '/users/sign_in'
       click_button('Log in')

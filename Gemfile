@@ -16,13 +16,13 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem 'cancancan'
 
 group :development, :test do
-  gem "database_cleaner"
+  gem 'database_cleaner'
 end
 
 group :test do
-  gem "capybara"
-  gem "selenium-webdriver"
-  gem "chromedriver-helper"
+  gem 'capybara'
+  gem 'chromedriver-helper'
+  gem 'selenium-webdriver'
 end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

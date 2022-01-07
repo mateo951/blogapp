@@ -4,7 +4,7 @@ module Mocks
   def create_users
     names = [
       { name: 'Mateo', bio: "I'm the last oracle", posts_counter: 0, email: 'foo1@foo.com', role: 'admin' },
-      { name: 'Felipe', bio: "I'm the First oracle", posts_counter: 0, email: 'foo2@foo.com', role: 'admin' },
+      { name: 'Felipe', bio: "I'm the First oracle", posts_counter: 0, email: 'foo2@foo.com', role: 'admin' }
     ]
     (0..1).each do |i|
       user = User.new(names[i])
@@ -12,10 +12,10 @@ module Mocks
       user.password_confirmation = 'admin123'
       user.save
     end
-  
+
     User.all
   end
-  
+
   def create_posts(users)
     users.each do |user|
       (1..5).each do |j|
@@ -30,7 +30,8 @@ module Mocks
     posts.each do |post|
       (0..1).each do |j|
         Like.create(author_id: users[j].id, post_id: post.id)
-        Comment.create(author_id: users[j].id, post_id: post.id, text: "I'm #{users[j].name} and I'm commenting gibberish here.")
+        Comment.create(author_id: users[j].id, post_id: post.id,
+                       text: "I'm #{users[j].name} and I'm commenting gibberish here.")
       end
     end
   end

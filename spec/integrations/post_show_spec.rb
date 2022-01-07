@@ -2,7 +2,7 @@ require 'rails_helper'
 require './spec/integrations/integration_mocks'
 
 RSpec.describe 'user index view', type: :feature do
-  include Mocks  
+  include Mocks
   before :each do
     @users = create_users
     @posts = create_posts(@users)
@@ -20,22 +20,22 @@ RSpec.describe 'user index view', type: :feature do
 
   context 'displaying post info' do
     it "can see post's title" do
-      expect(page).to have_content "#{@post.id}"
+      expect(page).to have_content @post.id.to_s
     end
     it "can see post's author" do
       expect(page).to have_content "by #{@users[0].name}"
     end
     it 'can see comments counter' do
-      expect(page).to have_content "Comments: #{ @post.comments_counter }"
+      expect(page).to have_content "Comments: #{@post.comments_counter}"
     end
     it 'can see likes counter' do
-      expect(page).to have_content "Likes:#{ @post.likes_counter }"
+      expect(page).to have_content "Likes:#{@post.likes_counter}"
     end
     it "can see post's text" do
-      expect(page).to have_content "This is post number"
+      expect(page).to have_content 'This is post number'
     end
     it "can see post's comment username" do
-      expect(page).to have_content "Felipe:"
+      expect(page).to have_content 'Felipe:'
     end
     it 'can see the username of each commentor.' do
       comments = @post.comments
