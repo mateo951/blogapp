@@ -15,11 +15,13 @@
     </div>
   </div>
 </div>
-<div class="post_data flex-row">
-  <div class="post_info">
-    <%= render partial: 'shared/comment', collection: @comments %>
+<% if @comments .length > 0 %>
+  <div class="post_data flex-row">
+    <div class="post_info">
+      <%= render partial: 'shared/comment', collection: @comments %>
+    </div>
   </div>
-</div>
+<% end %>
 <% flash.each do |type, msg| %>
   <div>
     <%= msg %>
