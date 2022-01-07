@@ -4,18 +4,17 @@ require './spec/integrations/integration_mocks'
 RSpec.describe 'user index view', type: :feature do
   include Mocks  
   before :each do
-    @user = User.new(name: 'Mateo V', bio: "I'm a testing living creature", posts_counter: 0, email: 'mateovillagomez1995@gmail.com')
-    @user.password = '123456'
-    @user.password_confirmation = '123456'
-    @user.save
+    @users = create_users
+    posts = create_posts(@users)
+    
     visit new_user_session_path
 
     within('form') do
-      fill_in 'user_email', with: 'mateovillagomez1995@gmail.com'
-      fill_in 'user_password', with: '123456'
+      fill_in 'user_email', with: 'foo1@foo.com'
+      fill_in 'user_password', with: 'admin123'
     end
     click_button 'Log in'
-    click_on('Mateo V')
+    click_on('Mateo')
   end
 
   context 'displaying user info' do
@@ -23,28 +22,40 @@ RSpec.describe 'user index view', type: :feature do
       expect(page).to have_selector('img')
     end
     it 'user name is displayed' do
-      expect(page).to have_content(@user.name)
+      expect(page).to have_content(@users[0].name)
     end
     it 'user number of post is displayed' do 
-      expect(page).to have_content "Number of posts: #{@user.posts_counter}"
+      expect(page).to have_content "Number of posts: #{@users[0].posts_counter}"
     end
     it 'user profile is displayed' do 
-      expect(page).to have_current_path "/users/#{@user.id}"
+      expect(page).to have_current_path "/users/#{@users[0].id}"
     end
 
     it 'user bio is displayed' do 
-      expect(page).to have_content @user.bio
+      expect(page).to have_content @users[0].bio
     end
 
     it 'user recent posts are displayed' do 
-      recent_posts = @user.recent_posts
+      recent_posts = @users[0].recent_posts
       recent_posts.each do |post|
-        expect(page).to have_content "#{post.title} - ##{post.id}"
+        expect(page).to have_content "Post ##{post.title}"
       end
     end
 
     it 'See all posts button is displayed' do
       expect(page).to have_content 'See all posts'
+    end
+  end
+  context 'Redirecting properly to other paths' do 
+    it "When I click a user's post, it redirects me to that post's show page" do
+      post = @users[0].recent_posts[0]
+      click_link("Post ##{post.title}")
+      expect(page).to have_current_path "/users/#{@users[0].id}/posts/#{post.id}"
+    end
+  
+    it "When I click to see all posts, it redirects me to the user's post's index page" do
+      click_link('See all posts')
+      expect(page).to have_current_path "/users/"
     end
   end
 end
