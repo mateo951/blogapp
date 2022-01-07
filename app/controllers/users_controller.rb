@@ -3,7 +3,7 @@ class UsersController < ApplicationController
     @users = User.all
 
     respond_to do |format|
-      format.json { render :json => @users }
+      format.json { render json: @users }
     end
   end
 
