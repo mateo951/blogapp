@@ -4,7 +4,7 @@ require './spec/integrations/integration_mocks'
 RSpec.describe 'user index view', type: :feature do
   include Mocks
   before :each do
-    users = create_users
+    create_users
     visit new_user_session_path
 
     within('form') do

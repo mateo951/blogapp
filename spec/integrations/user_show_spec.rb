@@ -5,7 +5,7 @@ RSpec.describe 'user index view', type: :feature do
   include Mocks
   before :each do
     @users = create_users
-    posts = create_posts(@users)
+    create_posts(@users)
 
     visit new_user_session_path
 
