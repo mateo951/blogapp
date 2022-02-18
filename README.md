@@ -8,31 +8,41 @@ Built With
 - PostgreSQL <img src="https://user-images.githubusercontent.com/80895497/142954032-f7072df9-3586-48f9-a9e0-7fdd284eb833.png" width=15px>
 
 ## Set Up
-To run the project locally, copy up and running follow these simple example steps :
+To run the project locally follow these steps:
 
- - First of all make sure you have both `Ruby` & `Rails` installed in your machine
- (else You can install `Rails` just with this simple command  ```gem install rails```)
- - clone the project with the following command line : 
+ - Make sure you have both `Ruby` & `Rails` installed in your machine
+ (else install `Rails` just with this simple command  ```gem install rails```)
+
+ - Clone repo from Github: 
 ```
 $ git clone git@github.com:mateo951/blogapp.git
 ```
- - Then go to the right folder 
+ - Navigate to app directory:
 ```
 $ cd blogapp
 ```
+ - Install dependencies:
 ```
 $ bundle
 ```
-make sure the database is up and running.
+ - Create database:
 ```
 $ rails db:create
 ```
-When you will add migration file then, you can add command like
+ - Create migration files:
 ```
 $ rails db:migrate
 ```
+ - Create testing data:
+```
+$ rails db:seed
+```
+ - Run server:
+```
+$ rails s
+```
 
-- Finaly run `rails s` and visit http://localhost:3000/  in your browser!
+- Visit http://localhost:3000/  in your browser!
 
 ## Run tests
 
